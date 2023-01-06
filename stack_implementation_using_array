@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+class Stack {
+    
+    // properties 
+    public:
+    int size;
+    int *arr;
+    int top;
+    
+    Stack(int size) {
+        this -> size = size;
+        arr = new int[size];
+        top = -1;
+    }
+    
+    void push(int element){
+        if(size -top > 1){
+            top++;
+          arr[top] = element;  
+        }
+        else{
+           cout<<"Stack Overflow"<<endl; 
+        }
+    }
+    
+    void pop(){
+        if(top>=0){
+            top--;
+    }
+    else{
+        cout<<"stack underFlow"<<endl;
+      }
+    }
+    int peek(){
+        if(top >=0){
+            return arr[top];
+        }else{
+            cout<<"stack are empty"<<endl;
+            return -1;
+        }
+    }
+    
+    bool isEmpty(){
+        if(top == -1){
+            cout<<"stack are empty"<<endl;
+            return true;
+        }
+        else{
+            cout<<" stack are not empty"<<endl;
+            return false;
+        }
+    }
+    
+};
+
+int main() {
+   
+   Stack st(5);
+   st.push(23);
+   st.push(43);
+   st.push(90);
+   st.push(65);
+   st.push(2445);
+   st.push(56);
+   
+  cout<<st.peek()<<endl;
+  st.pop();
+  cout<<st.peek()<<endl;
+  cout<<st.isEmpty()<<endl;
+
+    return 0;
+}
+
+//  time complexity of all opeartion in above
+T.C. = O(1)
+S.C. = O(1)
