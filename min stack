@@ -1,0 +1,39 @@
+class MinStack {
+public:
+
+ stack<int> normalStack;  // normal stack to push data
+ stack<int>minStack;     // stack to find min Element
+
+    MinStack() {
+        
+    }
+    
+    void push(int val) {
+         
+        // for min element stack
+        if(minStack.empty() || val <= minStack.top()){
+            minStack.push(val);
+        }
+        // for normal stack
+        normalStack.push(val);
+    }
+    
+    void pop() {
+         // for min element stack
+            if(normalStack.top() == minStack.top()){
+                minStack.pop();
+            }
+            // for normal stack
+            normalStack.pop();
+    }
+    
+    int top() {
+          return normalStack.top();
+    }
+    
+    int getMin() {
+        return minStack.top();
+    }
+};
+
+T.C. = O(N)
